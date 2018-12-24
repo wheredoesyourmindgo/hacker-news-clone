@@ -1,13 +1,9 @@
 import React from 'react'
 import Head from 'next/head'
-import Router, {withRouter} from 'next/router'
+import Router from 'next/router'
 import Link from 'next/link'
 
-const layout = ({
-  children,
-  title = 'Hacker News',
-  description = 'A Hacker News clone made with Next.js.'
-}) => {
+const layout = ({children, title, description, backButton}) => {
   return (
     <div>
       <Head>
@@ -16,6 +12,11 @@ const layout = ({
       </Head>
       <div className="root">
         <nav>
+          {backButton ? (
+            <span className="back-button" onClick={Router.back}>
+              &#x2b05;
+            </span>
+          ) : null}
           <Link href="/">
             <a>
               <span className="main-title">Hacker Next</span>
@@ -44,6 +45,11 @@ const layout = ({
         nav .main-title {
           font-weight: bold;
         }
+        nav .back-button {
+          font-size: 0.9rem;
+          padding-right: 1em;
+          cursor: pointer;
+        }
       `}</style>
       <style global jsx>
         {`
@@ -57,4 +63,10 @@ const layout = ({
   )
 }
 
-export default withRouter(layout)
+layout.defaultProps = {
+  backButton: false,
+  title: 'Hacker News',
+  description: 'A Hacker News clone made with Next.js.'
+}
+
+export default layout

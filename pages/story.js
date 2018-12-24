@@ -1,6 +1,7 @@
 import fetch from 'isomorphic-unfetch'
 import Error from 'next/error'
 import Layout from '../components/layout'
+import CommentList from '../components/commentList'
 
 class Story extends React.Component {
   render() {
@@ -9,7 +10,7 @@ class Story extends React.Component {
       return <Error statusCode={503} />
     }
     return (
-      <Layout title={story.title}>
+      <Layout title={story.title} backButton={true}>
         <div className="root">
           <main>
             <h1 className="story-title">
@@ -22,6 +23,12 @@ class Story extends React.Component {
               <strong>{story.comments_count} comments</strong>
               <strong>{story.time_ago}</strong>
             </div>
+
+            {story.comments.length > 0 ? (
+              <CommentList comments={story.comments} />
+            ) : (
+              <div>No comments for this story.</div>
+            )}
           </main>
           <style jsx>{`
             main {
