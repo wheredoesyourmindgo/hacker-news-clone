@@ -1,5 +1,6 @@
 import fetch from 'isomorphic-unfetch'
 import Error from 'next/error'
+import StoryList from '../components/storyList'
 
 class Index extends React.Component {
   render() {
@@ -10,11 +11,7 @@ class Index extends React.Component {
     return (
       <div>
         <h1>Hacker Next</h1>
-        <div>
-          {stories.map((story) => (
-            <h4 key={story.id}>{story.title}</h4>
-          ))}
-        </div>
+        <StoryList stories={stories} />
       </div>
     )
   }
