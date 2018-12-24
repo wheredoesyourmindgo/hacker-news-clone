@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "public": false,
+  "builds": [{"src": "out/**/*", "use": "@now/static"}],
+  "routes": [
+    {
+      "src": "^/(.*)$",
+      "dest": "/out/$1"
+    }
+  ]
+}
