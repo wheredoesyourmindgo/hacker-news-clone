@@ -6,13 +6,13 @@ const storyList = ({stories}) => {
       {stories.map((story) => (
         <div className="story" key={story.id}>
           <h2 className="story-title">
-            <a href={story.url} alt="Link to Story" target="_blank">
+            <a href={story.url} alt="Link to External Story" target="_blank">
               {story.title}
             </a>
           </h2>
           <div className="story-details">
             <span>{story.points || 0} points</span>
-            <Link as={`/story/${story.id}`} href={`/story?=${story.id}`}>
+            <Link as={`/story/${story.id}`} href={`/story?id=${story.id}`}>
               <a>{story.comments_count || 0} comments</a>
             </Link>
           </div>
