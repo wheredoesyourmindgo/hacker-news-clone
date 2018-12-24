@@ -1,7 +1,8 @@
 {
   "name": "hacker-news-clone",
+  "description": "A Hacker News clone",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "license": "MIT",
   "scripts": {
     "dev": "next",
