@@ -7,7 +7,7 @@
     "dev": "next",
     "build": "next build",
     "export": "next export",
-    "prenow": "npm run build && npm run export",
+    "prenow": "npm run build",
     "now": "now"
   },
   "dependencies": {
