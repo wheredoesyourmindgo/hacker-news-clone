@@ -8,6 +8,23 @@ import Link from 'next/link'
 const DEFAULT_PAGE = 1
 
 class Index extends React.Component {
+  componentDidMount() {
+    this.registerServiceWorker()
+  }
+
+  registerServiceWorker = async () => {
+    if ('serviceWorker' in navigator) {
+      try {
+        const registration = await navigator.serviceWorker.register(
+          '/service-worker.js'
+        )
+        console.log('service worker registration successful', registration)
+      } catch (err) {
+        console.warn('service worker registration failed', err.message)
+      }
+    }
+  }
+
   render() {
     const {stories, page} = this.props
 
