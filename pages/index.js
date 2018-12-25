@@ -38,7 +38,7 @@ class Index extends React.Component {
           <StoryList stories={stories} />
           <footer>
             <Link as={`/page/${page + 1}`} href={`/?page=${page + 1}`}>
-              <a>More</a>
+              <a>More Page Results</a>
             </Link>
           </footer>
           <style jsx>
