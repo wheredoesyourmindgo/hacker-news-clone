@@ -2,14 +2,13 @@
   "name": "hacker-news-clone",
   "description": "A Hacker News clone",
   "version": "1.0.1",
-  "main": "server.js",
   "license": "MIT",
   "scripts": {
     "dev": "next",
     "build": "next build",
     "export": "next export",
-    "now": "now",
-    "start": "NODE_ENV=production node server.js"
+    "prenow": "npm run build && npm run export",
+    "now": "now"
   },
   "dependencies": {
     "@zeit/next-css": "^1.0.1",

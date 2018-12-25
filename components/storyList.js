@@ -12,7 +12,8 @@ const storyList = ({stories}) => {
           </h2>
           <div className="story-details">
             <span>{story.points || 0} points</span>
-            <Link as={`/story/${story.id}`} href={`/story?id=${story.id}`}>
+            {/* <Link as={`/story/${story.id}`} href={`/story?id=${story.id}`}> */}
+            <Link href={`/story?id=${story.id}`}>
               <a>{story.comments_count || 0} comments</a>
             </Link>
           </div>

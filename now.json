@@ -1,7 +1,21 @@
 {
-  "version": 1,
+  "version": 2,
   "public": false,
   "env": {
     "NODE_ENV": "production"
-  }
+  },
+  "builds": [
+    {"src": "out/**/*", "use": "@now/static"},
+    {"src": ".next/service-worker.js", "use": "@now/static"}
+  ],
+  "routes": [
+    {
+      "src": "^/(?!service-worker.js)(.*)$",
+      "dest": "/out/$1"
+    },
+    {
+      "src": "/service-worker.js",
+      "dest": "/.next/service-worker.js"
+    }
+  ]
 }
