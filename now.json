@@ -1,18 +1,18 @@
 {
   "version": 2,
-  "public": false,
+  "public": true,
   "env": {
     "NODE_ENV": "production"
   },
   "builds": [
-    {"src": "out/**/*", "use": "@now/static"},
+    {
+      "src": "next.config.js",
+      "use": "@now/next",
+      "config": {"maxLambdaSize": "10mb"}
+    },
     {"src": ".next/service-worker.js", "use": "@now/static"}
   ],
   "routes": [
-    {
-      "src": "^/(?!service-worker.js)(.*)$",
-      "dest": "/out/$1"
-    },
     {
       "src": "/service-worker.js",
       "dest": "/.next/service-worker.js"
